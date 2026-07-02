@@ -180,99 +180,69 @@
     <section>
       <h2>Technical Notes</h2>
 
-      <article class="card note">
-        <p class="meta">Draft / Condensed matter / Band topology</p>
-        <h3>Band inversion and gap closing</h3>
+<article class="card note">
+  <p class="meta">Draft / Condensed matter / Band topology</p>
+  <h3>バンド反転とギャップ閉鎖に関する注意</h3>
 
-        <p>
-          Band inversion alone does not imply a linear crossing between the
-          valence and conduction bands. A linear gap closing requires additional
-          assumptions, such as a single-mass Dirac description and the absence
-          of symmetry-allowed independent mass terms.
-        </p>
+  <p>
+    野村健太郎『トポロジカル絶縁体・超伝導体』の図4.8周辺の説明には、
+    一つ注意を要する。質量項が一つしかない有効 Dirac 模型では、
+    band inversion によって質量がゼロを通過するため、バルクギャップは
+    反転点で閉じる。
+  </p>
 
-        <p>
-          For example, consider a Dirac-type Hamiltonian
-        </p>
+  <p>
+    しかし、この結論は一般命題ではない。独立な質量項が二つ以上許される場合、
+    質量パラメータは多次元空間を張る。そのため、補間経路は
+    gap-closing point を迂回できる。
+  </p>
 
-        <p>
-          \[
-          H(k)=v k\Gamma_1+m_1\Gamma_2+m_2\Gamma_3,
-          \qquad
-          \{\Gamma_i,\Gamma_j\}=2\delta_{ij}.
-          \]
-        </p>
+  <p>
+    例えば
+    \[
+    H(k)=v k\Gamma_1+m_1\Gamma_2+m_2\Gamma_3,
+    \qquad
+    \{\Gamma_i,\Gamma_j\}=2\delta_{ij}
+    \]
+    とすると、スペクトルは
+    \[
+    E_\pm(k)=\pm\sqrt{v^2k^2+m_1^2+m_2^2}
+    \]
+    である。したがって、\(m_1\) の符号が反転しても、\(m_2\neq0\) で
+    あればギャップは閉じない。ギャップ閉鎖は、質量ベクトル全体が原点に
+    到達した場合にのみ生じる。
+  </p>
 
-        <p>
-          Its spectrum is
-        </p>
+  <p>
+    この観点は、Clifford algebra を用いたトポロジカル相の分類とも整合する。
+    そこでは、課した対称性のもとでどの独立な Dirac mass terms が許されるかを
+    調べることで、ギャップを保った相の分類を行う。
+  </p>
 
-        <p>
-          \[
-          E_\pm(k)=\pm\sqrt{v^2k^2+m_1^2+m_2^2}.
-          \]
-        </p>
+  <p>
+    したがって、band inversion があるからといって、価電子帯と伝導帯の間に
+    Dirac cone 的な crossing point が必ず現れるわけではない。線形交差が
+    強制されるのは、単一質量の有効記述に制限されている場合、あるいは
+    追加の独立質量項が対称性によって禁じられている場合である。
+  </p>
 
-        <p>
-          Therefore, changing the sign of $m_1$ does not close the gap as long
-          as $m_2\neq0$. A gap closing occurs only when the mass vector passes
-          through the origin,
-        </p>
+  <p>
+    同種の過剰解釈は、一体バンド描像を出発点とする議論にも散見される。
+    例えば、電流が観測されたことだけから、価電子帯と伝導帯のギャップが
+    閉じたと結論するのは早計である。輸送は、境界状態、不純物準位、
+    トンネル過程、有限サイズ効果、あるいは多体機構によっても生じ得る。
+    したがって、輸送シグナルは、追加のスペクトル情報なしに
+    single-particle band-gap closing と同一視すべきではない。
+  </p>
 
-        <p>
-          \[
-          (m_1,m_2)=(0,0).
-          \]
-        </p>
-
-        <p>
-          Thus, the implication
-          “band inversion $\Rightarrow$ linear gap closing” is not valid as a
-          general statement. It is valid only under additional restrictions that
-          reduce the relevant mass space to a single direction.
-        </p>
-
-        <div class="tags">
-          <span>band inversion</span>
-          <span>Dirac Hamiltonian</span>
-          <span>gap closing</span>
-          <span>topology</span>
-        </div>
-      </article>
-
-      <article class="card note">
-        <p class="meta">Placeholder / Many-body Berry phase</p>
-        <h3>Many-body Berry phase beyond quantization</h3>
-
-        <p>
-          Notes on the information contained in the full many-body Berry phase,
-          including components that are invisible after reducing the phase modulo
-          symmetry-protected quantized values.
-        </p>
-
-        <div class="tags">
-          <span>many-body Berry phase</span>
-          <span>polarization</span>
-          <span>Wilson loop</span>
-        </div>
-      </article>
-
-      <article class="card note">
-        <p class="meta">Placeholder / Quantum algorithms</p>
-        <h3>Physical quantities suited to quantum computers</h3>
-
-        <p>
-          Notes on observables and response functions that may be more naturally
-          suited to quantum computation than conventional ground-state energy
-          estimation.
-        </p>
-
-        <div class="tags">
-          <span>quantum algorithms</span>
-          <span>response functions</span>
-          <span>condensed matter</span>
-        </div>
-      </article>
+  <div class="tags">
+    <span>band inversion</span>
+    <span>Dirac mass</span>
+    <span>gap closing</span>
+    <span>Clifford algebra</span>
+    <span>transport</span>
+  </div>
+</article>
     </section>
 
     <section>

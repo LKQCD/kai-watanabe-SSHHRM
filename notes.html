@@ -1,0 +1,247 @@
+from pathlib import Path
+
+html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notes | Kai Watanabe</title>
+
+  <meta name="description" content="Technical notes by Kai Watanabe on condensed-matter physics, many-body Berry phases, topology, quantum algorithms, and selected physics books.">
+  <meta name="keywords" content="Kai Watanabe, technical notes, condensed matter physics, band inversion, Berry phase, topology, quantum algorithms">
+  <meta name="author" content="Kai Watanabe">
+
+  <meta property="og:title" content="Notes | Kai Watanabe">
+  <meta property="og:description" content="Technical notes on condensed-matter physics, topology, quantum algorithms, and selected physics books.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/notes.html">
+  <meta property="og:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Notes | Kai Watanabe">
+  <meta name="twitter:description" content="Technical notes on condensed-matter physics, topology, quantum algorithms, and selected physics books.">
+  <meta name="twitter:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
+
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --text: #1f2230;
+      --muted: #5f6070;
+      --cyan: #00c7d9;
+      --pink: #ff4fd8;
+      --purple: #7b61ff;
+      --line: #eadcf5;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(255,79,216,0.10), rgba(0,199,217,0.10)),
+        var(--bg);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 70px auto;
+      padding: 0 28px 60px;
+    }
+
+    .header {
+      border-left: 6px solid var(--cyan);
+      padding-left: 22px;
+      margin-bottom: 42px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 0;
+      letter-spacing: 0.03em;
+      text-shadow: 2px 2px 0 rgba(255,79,216,0.35);
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      margin-top: 36px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+      color: #26223d;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      color: #26223d;
+    }
+
+    p, li {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(123,97,255,0.35);
+    }
+
+    a:hover {
+      color: var(--pink);
+      border-bottom-color: var(--pink);
+    }
+
+    .card {
+      background: rgba(255,255,255,0.70);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 8px 8px 0 rgba(0,199,217,0.10);
+      margin-top: 18px;
+    }
+
+    .note {
+      margin-top: 18px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    .tags span {
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 5px 10px;
+      border: 1px solid rgba(0,199,217,0.45);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      font-size: 14px;
+    }
+
+    .nav {
+      margin-bottom: 28px;
+      font-size: 15px;
+    }
+
+    footer {
+      margin-top: 50px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        margin-top: 46px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="nav">
+      <a href="index.html">← Back to home</a>
+    </div>
+
+    <section class="header">
+      <h1>Notes</h1>
+      <div class="subtitle">
+        Informal technical notes on condensed-matter physics, topology,
+        quantum algorithms, and selected physics books.
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Notes</h2>
+
+      <article class="card note">
+        <p class="meta">Draft / Condensed matter / Band topology</p>
+        <h3>Band inversion and gap closing</h3>
+        <p>
+          Band inversion alone does not imply a linear crossing between the
+          valence and conduction bands. A linear gap closing requires additional
+          assumptions, such as a single-mass Dirac description and the absence
+          of symmetry-allowed independent mass terms.
+        </p>
+        <div class="tags">
+          <span>band inversion</span>
+          <span>Dirac Hamiltonian</span>
+          <span>gap closing</span>
+          <span>topology</span>
+        </div>
+      </article>
+
+      <article class="card note">
+        <p class="meta">Placeholder / Many-body Berry phase</p>
+        <h3>Many-body Berry phase beyond quantization</h3>
+        <p>
+          Notes on the information contained in the full many-body Berry phase,
+          including components that are invisible after reducing the phase modulo
+          symmetry-protected quantized values.
+        </p>
+        <div class="tags">
+          <span>many-body Berry phase</span>
+          <span>polarization</span>
+          <span>Wilson loop</span>
+        </div>
+      </article>
+
+      <article class="card note">
+        <p class="meta">Placeholder / Quantum algorithms</p>
+        <h3>Physical quantities suited to quantum computers</h3>
+        <p>
+          Notes on observables and response functions that may be more naturally
+          suited to quantum computation than conventional ground-state energy
+          estimation.
+        </p>
+        <div class="tags">
+          <span>quantum algorithms</span>
+          <span>response functions</span>
+          <span>condensed matter</span>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Reading Notes</h2>
+
+      <article class="card note">
+        <p class="meta">Template / Book note</p>
+        <h3>Title of the book or lecture note</h3>
+        <p>
+          Short technical comment. The point of this section is not to write a
+          general book review, but to record assumptions, useful derivations,
+          and possible overstatements that matter in actual calculations.
+        </p>
+        <div class="tags">
+          <span>book note</span>
+          <span>technical comment</span>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © Kai Watanabe
+    </footer>
+  </main>
+</body>
+</html>
+"""
+
+path = Path("/mnt/data/notes.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path}") 

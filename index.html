@@ -4,22 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kai Watanabe | Quantum Ecosystem Developer / Condensed-Matter Physicist</title>
+  <title>Notes | Kai Watanabe</title>
 
-  <meta name="description" content="Kai Watanabe is a quantum ecosystem developer at QunaSys Inc. and a private condensed-matter physicist working on many-body Berry phases, topological phases of matter, gauge response, and quantum algorithms.">
-  <meta name="keywords" content="Kai Watanabe, QunaSys, quantum computing, quantum algorithms, condensed matter physics, many-body Berry phase, topological phases, gauge response, SSH-Hubbard model, lattice QCD">
+  <meta name="description" content="Technical notes by Kai Watanabe on condensed-matter physics, many-body Berry phases, topology, quantum algorithms, and selected physics books.">
+  <meta name="keywords" content="Kai Watanabe, technical notes, condensed matter physics, band inversion, Berry phase, topology, quantum algorithms">
   <meta name="author" content="Kai Watanabe">
 
-  <meta property="og:title" content="Kai Watanabe">
-  <meta property="og:description" content="Quantum ecosystem developer at QunaSys Inc. / Private condensed-matter physicist / Weekend rapper">
+  <meta property="og:title" content="Notes | Kai Watanabe">
+  <meta property="og:description" content="Technical notes on condensed-matter physics, topology, quantum algorithms, and selected physics books.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
+  <meta property="og:url" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/notes.html">
   <meta property="og:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kai Watanabe">
-  <meta name="twitter:description" content="Quantum ecosystem developer at QunaSys Inc. / Private condensed-matter physicist / Weekend rapper">
+  <meta name="twitter:title" content="Notes | Kai Watanabe">
+  <meta name="twitter:description" content="Technical notes on condensed-matter physics, topology, quantum algorithms, and selected physics books.">
   <meta name="twitter:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
+
+  <!-- MathJax: enables TeX-style equations in HTML -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
   <style>
     :root {
@@ -47,18 +61,10 @@
       padding: 0 28px 60px;
     }
 
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 36px;
-      margin-bottom: 42px;
-    }
-
     .header {
       border-left: 6px solid var(--cyan);
       padding-left: 22px;
-      margin-bottom: 0;
+      margin-bottom: 42px;
     }
 
     h1 {
@@ -72,6 +78,7 @@
       margin-top: 10px;
       color: var(--muted);
       font-size: 17px;
+      line-height: 1.6;
     }
 
     h2 {
@@ -79,6 +86,12 @@
       padding-bottom: 6px;
       border-bottom: 2px solid var(--line);
       font-size: 24px;
+      color: #26223d;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
       color: #26223d;
     }
 
@@ -98,6 +111,25 @@
       border-bottom-color: var(--pink);
     }
 
+    .card {
+      background: rgba(255,255,255,0.70);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 8px 8px 0 rgba(0,199,217,0.10);
+      margin-top: 18px;
+    }
+
+    .note {
+      margin-top: 18px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
     .tags span {
       display: inline-block;
       margin: 6px 8px 6px 0;
@@ -108,24 +140,9 @@
       font-size: 14px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.70);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 20px 24px;
-      box-shadow: 8px 8px 0 rgba(0,199,217,0.10);
-      margin-top: 18px;
-    }
-
-    .profile {
-      width: 300px;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 3px solid rgba(0,199,217,0.55);
-      box-shadow:
-        8px 8px 0 rgba(255,79,216,0.18),
-        -6px -6px 0 rgba(0,199,217,0.14);
+    .nav {
+      margin-bottom: 28px;
+      font-size: 15px;
     }
 
     footer {
@@ -135,14 +152,12 @@
     }
 
     @media (max-width: 700px) {
-      .hero {
-        flex-direction: column-reverse;
-        align-items: flex-start;
+      main {
+        margin-top: 46px;
       }
 
-      .profile {
-        width: 220px;
-        height: 176px;
+      h1 {
+        font-size: 34px;
       }
     }
   </style>
@@ -150,177 +165,136 @@
 
 <body>
   <main>
-<section class="hero">
-  <div class="header">
-    <h1>Kai Watanabe</h1>
-    <div class="subtitle">
-      Quantum ecosystem developer at QunaSys Inc. /
-      Private condensed-matter physicist /
-      Weekend rapper
+    <div class="nav">
+      <a href="index.html">← Back to home</a>
     </div>
-  </div>
 
-  <img class="profile" src="profile2.png" alt="Kai Watanabe">
-</section>
-
-    <section>
-  <h2>Job</h2>
-  <div class="card">
-    <p>
-      I work in business development at QunaSys Inc., focusing on strategic
-      partnerships, new business creation, and opportunities at the intersection
-      of technology and industry.
-    </p>
-    <p>
-      My work involves connecting stakeholders, identifying practical use cases,
-      and turning emerging ideas into scalable business initiatives.
-    </p>
-  </div>
-</section>
-    
-    <section>
-      <h2>Research</h2>
-      <div class="card">
-        <p>
-          My current research focuses on many-body geometric phases,
-          topological phases of matter, gauge response, and quantum algorithms
-          for condensed-matter systems.
-        </p>
-        <p>
-          I am interested in identifying physical quantities that are naturally
-          suited to quantum computers, beyond the conventional paradigm of
-          energy estimation.
-        </p>
-        <div class="tags">
-          <span>many-body Berry phase</span>
-          <span>topological phases</span>
-          <span>gauge response</span>
-          <span>quantum algorithms</span>
-        </div>
+    <section class="header">
+      <h1>Notes</h1>
+      <div class="subtitle">
+        Informal technical notes on condensed-matter physics, topology,
+        quantum algorithms, and selected physics books.
       </div>
     </section>
 
-<section>
-  <h2>Selected Publications / Preprints</h2>
-  <div class="card">
-    <ul>
-      <li>
-        <a href="https://doi.org/10.48550/arXiv.2606.02155">
-          <em>Information Hierarchy in Many-Body Berry Phase</em>
-        </a>,
-        Preprint, 2026.
-      </li>
+    <section>
+      <h2>Technical Notes</h2>
 
-      <li>
-        <a href="https://doi.org/10.48550/arXiv.2603.22217">
-          <em>An Exact Conjugation Identity for the Many-Body Wilson-Loop Beyond Quantization</em>
-        </a>,
-        Preprint, 2026.
-      </li>
+      <article class="card note">
+        <p class="meta">Draft / Condensed matter / Band topology</p>
+        <h3>Band inversion and gap closing</h3>
 
-      <li>
-        <a href="https://doi.org/10.48550/arXiv.2602.22578">
-          <em>Symmetry-enforced agreement of Kohn--Sham and many-body Berry phases in the SSH--Hubbard chain</em>
-        </a>,
-        Preprint, 2026.
-      </li>
+        <p>
+          Band inversion alone does not imply a linear crossing between the
+          valence and conduction bands. A linear gap closing requires additional
+          assumptions, such as a single-mass Dirac description and the absence
+          of symmetry-allowed independent mass terms.
+        </p>
 
-      <li>
-        <a href="https://doi.org/10.1103/PhysRevD.105.074510">
-          <em>Quark-diquark potential and diquark mass from lattice QCD</em>
-        </a>,
-        Physical Review D <strong>105</strong>, 074510, 2022.
-      </li>
+        <p>
+          For example, consider a Dirac-type Hamiltonian
+        </p>
 
-      <li>
-        <a href="https://doi.org/10.1007/s00601-021-01627-y">
-          <em>Building Diquark Model from Lattice QCD</em>
-        </a>,
-        Few-Body Systems, 2021.
-      </li>
+        <p>
+          \[
+          H(k)=v k\Gamma_1+m_1\Gamma_2+m_2\Gamma_3,
+          \qquad
+          \{\Gamma_i,\Gamma_j\}=2\delta_{ij}.
+          \]
+        </p>
 
-      <li>
-        <a href="https://doi.org/10.1093/ptep/pty027">
-          <em>Current matrix element in HAL QCD's wavefunction-equivalent potential method</em>
-        </a>,
-        Progress of Theoretical and Experimental Physics, 2018.
-      </li>
-    </ul>
-  </div>
-</section>
-    
-<section>
-  <h2>Hosted meetings</h2>
-  <div class="card">
-    <ul>
-      <li>
-        <a href="https://iqcae2026.github.io/homepage/jp/page.html">
-          <em>iQCAE 2026</em>
-        </a>
-      </li>
+        <p>
+          Its spectrum is
+        </p>
 
-      <li>
-        <a href="https://qunasys.com/news/posts/bngkczb-x9n/">
-          <em>Weather × Quantum Workshop @ University of Tokyo</em>
-        </a>
-      </li>
+        <p>
+          \[
+          E_\pm(k)=\pm\sqrt{v^2k^2+m_1^2+m_2^2}.
+          \]
+        </p>
 
-      <li>
-        <a href="https://qunasys.com/news/posts/sx4y-3rtd64y/">
-          <em>Finance x Quantum Workshop @ Otemachi</em>
-        </a>
-      </li>
+        <p>
+          Therefore, changing the sign of $m_1$ does not close the gap as long
+          as $m_2\neq0$. A gap closing occurs only when the mass vector passes
+          through the origin,
+        </p>
 
-      <li>
-        <a href="https://qunasys.com/news/posts/egmtwhl-70r9/">
-          <em>QCAE Study Group</em>
-        </a>
-      </li>
-    </ul>
-  </div>
-</section>
+        <p>
+          \[
+          (m_1,m_2)=(0,0).
+          \]
+        </p>
+
+        <p>
+          Thus, the implication
+          “band inversion $\Rightarrow$ linear gap closing” is not valid as a
+          general statement. It is valid only under additional restrictions that
+          reduce the relevant mass space to a single direction.
+        </p>
+
+        <div class="tags">
+          <span>band inversion</span>
+          <span>Dirac Hamiltonian</span>
+          <span>gap closing</span>
+          <span>topology</span>
+        </div>
+      </article>
+
+      <article class="card note">
+        <p class="meta">Placeholder / Many-body Berry phase</p>
+        <h3>Many-body Berry phase beyond quantization</h3>
+
+        <p>
+          Notes on the information contained in the full many-body Berry phase,
+          including components that are invisible after reducing the phase modulo
+          symmetry-protected quantized values.
+        </p>
+
+        <div class="tags">
+          <span>many-body Berry phase</span>
+          <span>polarization</span>
+          <span>Wilson loop</span>
+        </div>
+      </article>
+
+      <article class="card note">
+        <p class="meta">Placeholder / Quantum algorithms</p>
+        <h3>Physical quantities suited to quantum computers</h3>
+
+        <p>
+          Notes on observables and response functions that may be more naturally
+          suited to quantum computation than conventional ground-state energy
+          estimation.
+        </p>
+
+        <div class="tags">
+          <span>quantum algorithms</span>
+          <span>response functions</span>
+          <span>condensed matter</span>
+        </div>
+      </article>
+    </section>
 
     <section>
-  <h2>Music</h2>
-  <div class="card">
-    <p>
-      I like vaporwave, alternative rock, liquid drum and bass,
-      and related electronic music.
-    </p>
-  </div>
-</section>
-    
-<section>
-  <h2>Contact</h2>
-  <div class="card">
-    <p>
-      QunaSys Inc. Tokyo, Japan<br>
-      watanabe.k_AT_qunasys.com <br>
-      kaiw.sshhrm_AT_gmail.com
-    </p>
-  </div>
-</section>
-<section>
-  <h2>Links</h2>
-  <div class="card">
-    <p>
-      <a href="https://orcid.org/0000-0001-8669-8355">ORCID</a><br>
-      <a href="https://scholar.google.com/citations?user=usfLr3QAAAAJ&amp;hl=ja&amp;authuser=1">Google Scholar</a><br>
-      <a href="https://www.linkedin.com/in/watanabe-kai-sshhrm/">LinkedIn</a>
-    </p>
-  </div>
-  <section>
-  <h2>Notes</h2>
-  <div class="card">
-    <p>
-      Informal notes on physics books, papers, and technical points.
-    </p>
-    <p>
-      <a href="notes.html">Read notes</a>
-    </p>
-  </div>
-</section>
-</section>
+      <h2>Reading Notes</h2>
+
+      <article class="card note">
+        <p class="meta">Template / Book note</p>
+        <h3>Title of the book or lecture note</h3>
+
+        <p>
+          Short technical comment. The point of this section is not to write a
+          general book review, but to record assumptions, useful derivations,
+          and possible overstatements that matter in actual calculations.
+        </p>
+
+        <div class="tags">
+          <span>book note</span>
+          <span>technical comment</span>
+        </div>
+      </article>
+    </section>
+
     <footer>
       © Kai Watanabe
     </footer>

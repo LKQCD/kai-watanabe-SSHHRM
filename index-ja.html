@@ -1,0 +1,355 @@
+from pathlib import Path
+
+html = """<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>渡邉 海 | 主に物理学の研究者</title>
+  <meta name="description" content="渡邉海の研究プロフィール、論文、技術ノート、および物性物理、多体ベリー位相、トポロジー、量子アルゴリズムに関する活動。">
+  <meta name="keywords" content="渡邉海, Kai Watanabe, 技術ノート, 物性物理, バンド反転, ディラック質量, ギャップ閉鎖, トポロジカル絶縁体, トポロジカル超伝導体, 多体ベリー位相, ウィルソンループ, 分極, 量子アルゴリズム, SSH-Hubbard模型">
+  <meta name="author" content="Kai Watanabe">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <link rel="canonical" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
+  <link rel="alternate" hreflang="en" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
+  <link rel="alternate" hreflang="ja" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
+  <link rel="alternate" hreflang="x-default" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
+
+  <meta property="og:title" content="渡邉 海 | 理論物性物理研究者">
+  <meta property="og:description" content="渡邉海の研究プロフィールと、物性物理、多体ベリー位相、トポロジー、量子アルゴリズムに関する研究成果。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
+  <meta property="og:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
+  <meta property="og:site_name" content="Kai Watanabe">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="渡邉 海 | 理論物性物理研究者">
+  <meta name="twitter:description" content="物性物理、多体ベリー位相、トポロジー、量子アルゴリズムに関する研究プロフィールと論文。">
+  <meta name="twitter:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "渡邉 海 | 理論物性物理研究者",
+    "url": "https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html",
+    "inLanguage": "ja",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Kai Watanabe",
+      "alternateName": "渡邉 海",
+      "url": "https://lkqcd.github.io/kai-watanabe-SSHHRM/"
+    },
+    "description": "渡邉海の研究プロフィール、論文、技術ノート、および専門活動。"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #fff7fb;
+      --text: #1f2230;
+      --muted: #5f6070;
+      --cyan: #00c7d9;
+      --pink: #ff4fd8;
+      --purple: #7b61ff;
+      --line: #eadcf5;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(255,79,216,0.10), rgba(0,199,217,0.10)),
+        var(--bg);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 70px auto;
+      padding: 0 28px 60px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+      margin-bottom: 42px;
+    }
+
+    .header {
+      border-left: 6px solid var(--cyan);
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 0;
+      letter-spacing: 0.03em;
+      text-shadow: 2px 2px 0 rgba(255,79,216,0.35);
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    h2 {
+      margin-top: 36px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--line);
+      font-size: 24px;
+      color: #26223d;
+    }
+
+    p, li {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(123,97,255,0.35);
+    }
+
+    a:hover {
+      color: var(--pink);
+      border-bottom-color: var(--pink);
+    }
+
+    .tags span {
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 5px 10px;
+      border: 1px solid rgba(0,199,217,0.45);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      font-size: 14px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.70);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 24px;
+      box-shadow: 8px 8px 0 rgba(0,199,217,0.10);
+      margin-top: 18px;
+    }
+
+    .profile {
+      width: 300px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 3px solid rgba(0,199,217,0.55);
+      box-shadow:
+        8px 8px 0 rgba(255,79,216,0.18),
+        -6px -6px 0 rgba(0,199,217,0.14);
+    }
+
+    footer {
+      margin-top: 50px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+
+      .profile {
+        width: 220px;
+        height: 176px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <div class="header">
+        <h1>渡邉 海</h1>
+        <div class="subtitle">
+          QunaSys株式会社 量子エコシステム開発 /
+          在野の理論物性物理研究者 /
+          週末ラッパー
+        </div>
+      </div>
+
+      <img class="profile" src="profile2.png" alt="渡邉 海">
+    </section>
+
+    <section>
+      <h2>職務</h2>
+      <div class="card">
+        <p>
+          QunaSys株式会社において事業開発に従事し、戦略的パートナーシップの構築、
+          新規事業の創出、および技術と産業の接点における事業機会の探索に取り組んでいます。
+        </p>
+        <p>
+          多様なステークホルダーをつなぎ、実用的なユースケースを見いだし、
+          新たなアイデアを拡張可能な事業へと発展させることを主な業務としています。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>研究</h2>
+      <div class="card">
+        <p>
+          現在の研究テーマは、多体幾何学的位相、物質のトポロジカル相、
+          ゲージ応答、および物性物理系のための量子アルゴリズムです。
+        </p>
+        <p>
+          従来のエネルギー推定を中心とする枠組みを超え、
+          量子コンピュータに自然に適した物理量を同定することに関心を持っています。
+        </p>
+        <div class="tags">
+          <span>多体ベリー位相</span>
+          <span>トポロジカル相</span>
+          <span>ゲージ応答</span>
+          <span>量子アルゴリズム</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>主な論文・プレプリント</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <a href="https://doi.org/10.48550/arXiv.2606.02155">
+              <em>Information Hierarchy in Many-Body Berry Phase</em>
+            </a>,
+            プレプリント, 2026.
+          </li>
+          <li>
+            <a href="https://doi.org/10.48550/arXiv.2603.22217">
+              <em>An Exact Conjugation Identity for the Many-Body Wilson-Loop Beyond Quantization</em>
+            </a>,
+            プレプリント, 2026.
+          </li>
+          <li>
+            <a href="https://doi.org/10.48550/arXiv.2602.22578">
+              <em>Symmetry-enforced agreement of Kohn--Sham and many-body Berry phases in the SSH--Hubbard chain</em>
+            </a>,
+            プレプリント, 2026.
+          </li>
+          <li>
+            <a href="https://doi.org/10.1103/PhysRevD.105.074510">
+              <em>Quark-diquark potential and diquark mass from lattice QCD</em>
+            </a>,
+            Physical Review D <strong>105</strong>, 074510, 2022.
+          </li>
+          <li>
+            <a href="https://doi.org/10.1007/s00601-021-01627-y">
+              <em>Building Diquark Model from Lattice QCD</em>
+            </a>,
+            Few-Body Systems, 2021.
+          </li>
+          <li>
+            <a href="https://doi.org/10.1093/ptep/pty027">
+              <em>Current matrix element in HAL QCD's wavefunction-equivalent potential method</em>
+            </a>,
+            Progress of Theoretical and Experimental Physics, 2018.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>主催したイベント</h2>
+      <div class="card">
+        <ul>
+          <li>
+            <a href="https://iqcae2026.github.io/homepage/jp/page.html">
+              <em>iQCAE 2026</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://qunasys.com/news/posts/bngkczb-x9n/">
+              <em>Weather × Quantum Workshop @ 東京大学</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://qunasys.com/news/posts/sx4y-3rtd64y/">
+              <em>Finance × Quantum Workshop @ 大手町</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://qunasys.com/news/posts/egmtwhl-70r9/">
+              <em>QCAE Study Group</em>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>ノート</h2>
+      <div class="card">
+        <p>
+          物性物理、トポロジー、量子アルゴリズム、および物理学の書籍に関する
+          非公式の技術ノートを公開しています。
+        </p>
+        <p>
+          <a href="notes-ja.html">ノートを読む</a>
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>音楽</h2>
+      <div class="card">
+        <p>
+          Vaporwave、Alternative Rock、Liquid Drum and Bass、
+          および関連する電子音楽を好んでいます。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>連絡先</h2>
+      <div class="card">
+        <p>
+          QunaSys株式会社（東京）<br>
+          watanabe.k_AT_qunasys.com<br>
+          kaiw.sshhrm_AT_gmail.com
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>リンク</h2>
+      <div class="card">
+        <p>
+          <a href="https://orcid.org/0000-0001-8669-8355">ORCID</a><br>
+          <a href="https://scholar.google.com/citations?user=usfLr3QAAAAJ&amp;hl=ja&amp;authuser=1">Google Scholar</a><br>
+          <a href="https://www.linkedin.com/in/watanabe-kai-sshhrm/">LinkedIn</a><br>
+          <a href="https://bsky.app/profile/dream-craft.bsky.social">Bluesky</a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © Kai Watanabe
+    </footer>
+  </main>
+</body>
+</html>
+"""
+
+path = Path("/mnt/data/index-ja.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created: {path}")

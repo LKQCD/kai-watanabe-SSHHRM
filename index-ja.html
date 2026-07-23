@@ -1,22 +1,26 @@
-from pathlib import Path
-
-html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>渡邉 海 | 主に物理学の研究者</title>
+  <title>渡邉 海 | 理論物性物理研究者</title>
+
   <meta name="description" content="渡邉海の研究プロフィール、論文、技術ノート、および物性物理、多体ベリー位相、トポロジー、量子アルゴリズムに関する活動。">
   <meta name="keywords" content="渡邉海, Kai Watanabe, 技術ノート, 物性物理, バンド反転, ディラック質量, ギャップ閉鎖, トポロジカル絶縁体, トポロジカル超伝導体, 多体ベリー位相, ウィルソンループ, 分極, 量子アルゴリズム, SSH-Hubbard模型">
   <meta name="author" content="Kai Watanabe">
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
 
-  <link rel="canonical" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
-  <link rel="alternate" hreflang="en" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
-  <link rel="alternate" hreflang="ja" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
-  <link rel="alternate" hreflang="x-default" href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
+  <link rel="canonical"
+        href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
+
+  <link rel="alternate" hreflang="en"
+        href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
+  <link rel="alternate" hreflang="ja"
+        href="https://lkqcd.github.io/kai-watanabe-SSHHRM/index-ja.html">
+  <link rel="alternate" hreflang="x-default"
+        href="https://lkqcd.github.io/kai-watanabe-SSHHRM/">
 
   <meta property="og:title" content="渡邉 海 | 理論物性物理研究者">
   <meta property="og:description" content="渡邉海の研究プロフィールと、物性物理、多体ベリー位相、トポロジー、量子アルゴリズムに関する研究成果。">
@@ -25,6 +29,7 @@ html = """<!DOCTYPE html>
   <meta property="og:image" content="https://lkqcd.github.io/kai-watanabe-SSHHRM/profile2.png">
   <meta property="og:site_name" content="Kai Watanabe">
   <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="渡邉 海 | 理論物性物理研究者">
@@ -42,7 +47,13 @@ html = """<!DOCTYPE html>
       "@type": "Person",
       "name": "Kai Watanabe",
       "alternateName": "渡邉 海",
-      "url": "https://lkqcd.github.io/kai-watanabe-SSHHRM/"
+      "url": "https://lkqcd.github.io/kai-watanabe-SSHHRM/",
+      "sameAs": [
+        "https://orcid.org/0000-0001-8669-8355",
+        "https://scholar.google.com/citations?user=usfLr3QAAAAJ",
+        "https://www.linkedin.com/in/watanabe-kai-sshhrm/",
+        "https://bsky.app/profile/dream-craft.bsky.social"
+      ]
     },
     "description": "渡邉海の研究プロフィール、論文、技術ノート、および専門活動。"
   }
@@ -61,11 +72,37 @@ html = """<!DOCTYPE html>
 
     body {
       margin: 0;
-      font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-family:
+        Arial,
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        Meiryo,
+        sans-serif;
       color: var(--text);
       background:
-        linear-gradient(135deg, rgba(255,79,216,0.10), rgba(0,199,217,0.10)),
+        linear-gradient(
+          135deg,
+          rgba(255,79,216,0.10),
+          rgba(0,199,217,0.10)
+        ),
         var(--bg);
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .language-switch a {
+      margin-left: 6px;
+      border-bottom: none;
+    }
+
+    .language-switch span {
+      margin-left: 6px;
     }
 
     main {
@@ -109,7 +146,8 @@ html = """<!DOCTYPE html>
       color: #26223d;
     }
 
-    p, li {
+    p,
+    li {
       font-size: 17px;
       line-height: 1.7;
     }
@@ -162,6 +200,11 @@ html = """<!DOCTYPE html>
     }
 
     @media (max-width: 700px) {
+      .language-switch {
+        top: 16px;
+        right: 18px;
+      }
+
       .hero {
         flex-direction: column-reverse;
         align-items: flex-start;
@@ -176,6 +219,12 @@ html = """<!DOCTYPE html>
 </head>
 
 <body>
+  <nav class="language-switch" aria-label="言語選択">
+    <a href="index.html" lang="en" hreflang="en">EN</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">日本語</span>
+  </nav>
+
   <main>
     <section class="hero">
       <div class="header">
@@ -194,12 +243,15 @@ html = """<!DOCTYPE html>
       <h2>職務</h2>
       <div class="card">
         <p>
-          QunaSys株式会社において事業開発に従事し、戦略的パートナーシップの構築、
-          新規事業の創出、および技術と産業の接点における事業機会の探索に取り組んでいます。
+          QunaSys株式会社において事業開発に従事し、
+          戦略的パートナーシップの構築、新規事業の創出、
+          および技術と産業の接点における事業機会の探索に取り組んでいます。
         </p>
         <p>
-          多様なステークホルダーをつなぎ、実用的なユースケースを見いだし、
-          新たなアイデアを拡張可能な事業へと発展させることを主な業務としています。
+          多様なステークホルダーをつなぎ、
+          実用的なユースケースを見いだし、
+          新たなアイデアを拡張可能な事業へと発展させることを
+          主な業務としています。
         </p>
       </div>
     </section>
@@ -208,13 +260,16 @@ html = """<!DOCTYPE html>
       <h2>研究</h2>
       <div class="card">
         <p>
-          現在の研究テーマは、多体幾何学的位相、物質のトポロジカル相、
-          ゲージ応答、および物性物理系のための量子アルゴリズムです。
+          現在の研究テーマは、多体幾何学的位相、
+          物質のトポロジカル相、ゲージ応答、
+          および物性物理系のための量子アルゴリズムです。
         </p>
         <p>
           従来のエネルギー推定を中心とする枠組みを超え、
-          量子コンピュータに自然に適した物理量を同定することに関心を持っています。
+          量子コンピュータに自然に適した物理量を
+          同定することに関心を持っています。
         </p>
+
         <div class="tags">
           <span>多体ベリー位相</span>
           <span>トポロジカル相</span>
@@ -234,30 +289,35 @@ html = """<!DOCTYPE html>
             </a>,
             プレプリント, 2026.
           </li>
+
           <li>
             <a href="https://doi.org/10.48550/arXiv.2603.22217">
               <em>An Exact Conjugation Identity for the Many-Body Wilson-Loop Beyond Quantization</em>
             </a>,
             プレプリント, 2026.
           </li>
+
           <li>
             <a href="https://doi.org/10.48550/arXiv.2602.22578">
               <em>Symmetry-enforced agreement of Kohn--Sham and many-body Berry phases in the SSH--Hubbard chain</em>
             </a>,
             プレプリント, 2026.
           </li>
+
           <li>
             <a href="https://doi.org/10.1103/PhysRevD.105.074510">
               <em>Quark-diquark potential and diquark mass from lattice QCD</em>
             </a>,
             Physical Review D <strong>105</strong>, 074510, 2022.
           </li>
+
           <li>
             <a href="https://doi.org/10.1007/s00601-021-01627-y">
               <em>Building Diquark Model from Lattice QCD</em>
             </a>,
             Few-Body Systems, 2021.
           </li>
+
           <li>
             <a href="https://doi.org/10.1093/ptep/pty027">
               <em>Current matrix element in HAL QCD's wavefunction-equivalent potential method</em>
@@ -277,16 +337,19 @@ html = """<!DOCTYPE html>
               <em>iQCAE 2026</em>
             </a>
           </li>
+
           <li>
             <a href="https://qunasys.com/news/posts/bngkczb-x9n/">
               <em>Weather × Quantum Workshop @ 東京大学</em>
             </a>
           </li>
+
           <li>
             <a href="https://qunasys.com/news/posts/sx4y-3rtd64y/">
               <em>Finance × Quantum Workshop @ 大手町</em>
             </a>
           </li>
+
           <li>
             <a href="https://qunasys.com/news/posts/egmtwhl-70r9/">
               <em>QCAE Study Group</em>
@@ -300,8 +363,8 @@ html = """<!DOCTYPE html>
       <h2>ノート</h2>
       <div class="card">
         <p>
-          物性物理、トポロジー、量子アルゴリズム、および物理学の書籍に関する
-          非公式の技術ノートを公開しています。
+          物性物理、トポロジー、量子アルゴリズム、
+          および物理学の書籍に関する非公式の技術ノートを公開しています。
         </p>
         <p>
           <a href="notes-ja.html">ノートを読む</a>
@@ -348,8 +411,3 @@ html = """<!DOCTYPE html>
   </main>
 </body>
 </html>
-"""
-
-path = Path("/mnt/data/index-ja.html")
-path.write_text(html, encoding="utf-8")
-print(f"Created: {path}")
